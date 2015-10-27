@@ -56,4 +56,4 @@ git clone https://github.com/tahmid-tanzim/work-abroad.git
  bundle exec rake db:create db:migrate
  rails server
  ```
-This FrontEnd of Project is developed in React.js & Flux.
+The FrontEnd is developed in [React.js](https://facebook.github.io/react/) & [Flux](https://facebook.github.io/flux/).
