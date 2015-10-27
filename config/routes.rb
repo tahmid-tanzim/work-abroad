@@ -1,4 +1,19 @@
 Rails.application.routes.draw do
+
+  get 'workers/index'
+
+  # Note: Basic Route Type
+
+  # 1. Simple route
+  #       get "demo/index"
+  #       match "demo/index", :to => "demo#index", :via => :get
+
+  # 2. Default route
+  #       match ':controller(/:action(/:id(.:format)))', :via => :get
+
+  # 3. Root route
+  #         root :to => 'demo#index'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

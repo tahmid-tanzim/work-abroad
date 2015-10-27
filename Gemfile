@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 
+# This Project is build in Ruby Version: 2.1.7-p400
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.4'

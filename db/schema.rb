@@ -11,6 +11,28 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 0) do
+ActiveRecord::Schema.define(version: 20151027132318) do
+
+  create_table "work_experiences", force: :cascade do |t|
+    t.integer  "worker_id",    limit: 4
+    t.string   "company_name", limit: 50,                        null: false
+    t.string   "position",     limit: 25,                        null: false
+    t.date     "from",                    default: '2015-10-27'
+    t.date     "to",                      default: '2015-10-27'
+    t.datetime "created_at",                                     null: false
+    t.datetime "updated_at",                                     null: false
+  end
+
+  create_table "workers", force: :cascade do |t|
+    t.string   "fullname",        limit: 50
+    t.integer  "national_id",     limit: 4,                null: false
+    t.string   "email",           limit: 255, default: "", null: false
+    t.string   "hashed_password", limit: 40
+    t.datetime "created_at",                               null: false
+    t.datetime "updated_at",                               null: false
+  end
+
+  add_index "workers", ["email"], name: "index_workers_on_email", using: :btree
+  add_index "workers", ["national_id"], name: "index_workers_on_national_id", using: :btree
 
 end
