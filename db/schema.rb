@@ -17,8 +17,8 @@ ActiveRecord::Schema.define(version: 20151027132318) do
     t.integer  "worker_id",    limit: 4
     t.string   "company_name", limit: 50,                        null: false
     t.string   "position",     limit: 25,                        null: false
-    t.date     "from",                    default: '2015-10-27'
-    t.date     "to",                      default: '2015-10-27'
+    t.date     "from",                    default: '2015-10-28'
+    t.date     "to",                      default: '2015-10-28'
     t.datetime "created_at",                                     null: false
     t.datetime "updated_at",                                     null: false
   end

@@ -1,7 +1,7 @@
 # Work Abroad
 
 ### Development Environment Setup
-#### 1. Install some dependencies for Ruby
+#### 1. Install some dependencies for Ruby version: 2.1.7
 ```
 sudo apt-get update
 sudo apt-get install git-core curl zlib1g-dev build-essential libssl-dev libreadline-dev libyaml-dev libsqlite3-dev sqlite3 libxml2-dev libxslt1-dev libcurl4-openssl-dev python-software-properties libffi-dev
@@ -22,6 +22,7 @@ git clone https://github.com/sstephenson/rbenv-gem-rehash.git ~/.rbenv/plugins/r
 
 rbenv install 2.1.7
 rbenv global 2.1.7
+rbenv versions
 ruby -v
 ```
 #### 3. Installing Bundler
@@ -29,7 +30,7 @@ ruby -v
 echo "gem: --no-ri --no-rdoc" > ~/.gemrc
 gem install bundler
 ```
-#### 4. Installing Rails
+#### 4. Installing Rails version: 4.2.4
 ```
 sudo add-apt-repository ppa:chris-lea/node.js
 sudo apt-get update
@@ -56,4 +57,4 @@ git clone https://github.com/tahmid-tanzim/work-abroad.git
  bundle exec rake db:create db:migrate
  rails server
  ```
-The FrontEnd is developed in [React.js](https://facebook.github.io/react/) & [Flux](https://facebook.github.io/flux/).
+The Front end is developed in [React.js](https://facebook.github.io/react/) & [Flux](https://facebook.github.io/flux/).
