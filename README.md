@@ -1,7 +1,7 @@
 # Work Abroad
 
 ### Development Environment Setup
-#### 1. Install some dependencies for Ruby version: 2.1.7
+#### 1. Install some dependencies for Ruby version: 2.2.2p95
 ```
 sudo apt-get update
 sudo apt-get install git-core curl zlib1g-dev build-essential libssl-dev libreadline-dev libyaml-dev libsqlite3-dev sqlite3 libxml2-dev libxslt1-dev libcurl4-openssl-dev python-software-properties libffi-dev
@@ -20,8 +20,8 @@ exec $SHELL
 
 git clone https://github.com/sstephenson/rbenv-gem-rehash.git ~/.rbenv/plugins/rbenv-gem-rehash
 
-rbenv install 2.1.7
-rbenv global 2.1.7
+rbenv install 2.2.2p95
+rbenv global 2.2.2p95
 rbenv versions
 ruby -v
 ```
