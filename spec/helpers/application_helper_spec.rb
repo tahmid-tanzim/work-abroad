@@ -3,10 +3,10 @@ require 'rails_helper'
 RSpec.describe ApplicationHelper, type: :helper do
   describe "#full_title" do
     it "returns the default title" do
-      expect(helper.full_title).to eq("Work Abroad")
+      expect(helper.full_title).to eq("Work Abroad - Bangladesh")
     end
     it "returns the assigned page title" do
-      expect(helper.full_title("My Title")).to eq("My Title | Work Abroad")
+      expect(helper.full_title("My Title")).to eq("My Title | Work Abroad - Bangladesh")
     end
   end
 end
