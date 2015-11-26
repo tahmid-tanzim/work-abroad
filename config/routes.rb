@@ -4,8 +4,7 @@ Rails.application.routes.draw do
   get 'help' => 'static_pages#help'
   get 'about' => 'static_pages#about'
   get 'contact' => 'static_pages#contact'
-
-  get 'workers/index'
+  get 'signup'  => 'workers#new'
 
   # Note: Basic Route Type
 

@@ -1,7 +1,6 @@
 require 'rails_helper'
 
 RSpec.describe Worker, type: :model do
-  # pending "add some examples to (or delete) #{__FILE__}"
 
   it "has none to begin with" do
     expect(Worker.count).to eq 0

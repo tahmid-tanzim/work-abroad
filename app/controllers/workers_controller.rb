@@ -1,4 +1,4 @@
 class WorkersController < ApplicationController
-  def index
+  def new
   end
 end
