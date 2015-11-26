@@ -6,6 +6,8 @@ Rails.application.routes.draw do
   get 'contact' => 'static_pages#contact'
   get 'signup'  => 'workers#new'
 
+  resources :workers
+
   # Note: Basic Route Type
 
   # 1. Simple route
