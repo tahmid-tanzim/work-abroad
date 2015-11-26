@@ -5,9 +5,13 @@ class Worker < ActiveRecord::Base
 
   validates :national_id,
             presence: true,
+            uniqueness: true,
+            length: {
+                minimum: 1,
+                maximum: 17
+            },
             numericality: {
-                greater_than_or_equal_to: 0,
-                less_than_or_equal_to: 50
+                greater_than_or_equal_to: 1
             }
 
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z\d\-]+)*\.[a-z]+\z/i
