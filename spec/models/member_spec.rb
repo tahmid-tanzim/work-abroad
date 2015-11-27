@@ -17,7 +17,7 @@ RSpec.describe Member, type: :model do
   end
 
   it ":national_id length should be less then equal to 17" do
-    @member.national_id = rand(10 ** 18)
+    @member.national_id = Faker::Number.number(18)
     expect(@member).not_to be_valid
   end
 
