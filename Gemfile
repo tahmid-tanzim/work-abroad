@@ -41,7 +41,10 @@ group :development, :test do
   # rspec-rails is a testing framework for Rails 3.x and 4.x.
   gem 'rspec-rails', '~> 3.0'
 
-  gem 'factory_girl_rails', '~> 4.0'
+  gem 'factory_girl_rails'
+  gem 'capybara'
+  gem 'database_cleaner'
+  gem 'ffaker'
 end
 
 group :development do
