@@ -45,6 +45,7 @@ mysql -u root -p
 GRANT ALL PRIVILEGES ON workabroad_development.* TO 'workabroad'@'localhost' IDENTIFIED BY 'Work@1971';
 GRANT ALL PRIVILEGES ON workabroad_test.* TO 'workabroad'@'localhost' IDENTIFIED BY 'Work@1971';
 SHOW GRANTS FOR 'workabroad'@'localhost';
+exit
 ```
 #### 6. Clone Git Repository
 ```

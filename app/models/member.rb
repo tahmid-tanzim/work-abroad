@@ -4,6 +4,11 @@ class Member < ActiveRecord::Base
 
   before_save { email.downcase! }
 
+  attr_accessor :remember_token, :activation_token
+  before_save   :downcase_email
+  before_create :create_activation_digest
+  validates :name,  presence: true, length: { maximum: 50 }
+
   validates :national_id,
             presence: true,
             uniqueness: true,
@@ -41,7 +46,7 @@ class Member < ActiveRecord::Base
                        order("members.created_at DESC")
                      }
   scope :search_by_name, lambda { |query|
-                         where(["fullname LIKE ?", "%#{query}%"])
+                         where(["name LIKE ?", "%#{query}%"])
                        }
 
   # Returns the hash digest of the given string.
@@ -63,12 +68,39 @@ class Member < ActiveRecord::Base
 
   # Returns true if the given token matches the digest.
   def authenticated?(remember_token)
-    return false if remember_digest.nil?
-    BCrypt::Password.new(remember_digest).is_password?(remember_token)
+    # return false if remember_digest.nil?
+    # BCrypt::Password.new(remember_digest).is_password?(remember_token)
+    digest = send("#{attribute}_digest")
+    return false if digest.nil?
+    BCrypt::Password.new(digest).is_password?(token)
   end
 
   # Forgets a member.
   def forget
     update_attribute(:remember_digest, nil)
+  end
+
+  # Activates an account.
+  def activate
+    update_attribute(:activated,    true)
+    update_attribute(:activated_at, Time.zone.now)
+  end
+
+  # Sends activation email.
+  def send_activation_email
+    MemberMailer.account_activation(self).deliver_now
+  end
+
+  private
+
+  # Converts email to all lower-case.
+  def downcase_email
+    self.email = email.downcase
+  end
+
+  # Creates and assigns the activation token and digest.
+  def create_activation_digest
+    self.activation_token  = Member.new_token
+    self.activation_digest = Member.digest(activation_token)
   end
 end

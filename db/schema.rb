@@ -11,17 +11,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151127134453) do
+ActiveRecord::Schema.define(version: 20151127163122) do
 
   create_table "members", force: :cascade do |t|
-    t.string   "fullname",        limit: 50
-    t.string   "national_id",     limit: 25,  null: false
-    t.string   "email",           limit: 255, null: false
-    t.string   "password_digest", limit: 255
-    t.datetime "created_at",                  null: false
-    t.datetime "updated_at",                  null: false
-    t.string   "remember_digest", limit: 255
+    t.string   "name",          limit: 50
+    t.string   "national_id",       limit: 25,                  null: false
+    t.string   "email",             limit: 255,                 null: false
+    t.string   "password_digest",   limit: 255
+    t.datetime "created_at",                                    null: false
+    t.datetime "updated_at",                                    null: false
+    t.string   "remember_digest",   limit: 255
     t.boolean  "admin"
+    t.string   "activation_digest", limit: 255
+    t.boolean  "activated",                     default: false
+    t.datetime "activated_at"
   end
 
   add_index "members", ["email"], name: "index_members_on_email", using: :btree

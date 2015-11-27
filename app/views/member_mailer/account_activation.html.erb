@@ -1,0 +1,9 @@
+<h1>Working Abroad</h1>
+
+<p>Hi <%= @member.name %>,</p>
+
+<p>
+  Welcome to the Working Abroad! Click on the link below to activate your account:
+</p>
+
+<%= link_to "Activate", edit_account_activation_url(@member.activation_token, email: @member.email) %>

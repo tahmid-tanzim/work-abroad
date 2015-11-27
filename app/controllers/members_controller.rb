@@ -19,9 +19,12 @@ class MembersController < ApplicationController
   def create
     @member = Member.new(member_params)    # Not the final implementation!
     if @member.save
-      log_in @member
-      flash[:success] = "Welcome to the Work Abroad!"
-      redirect_to @member
+      # log_in @member
+      # flash[:success] = "Welcome to the Work Abroad!"
+      # redirect_to @member
+      @member.send_activation_email
+      flash[:info] = "Please check your email to activate your account."
+      redirect_to root_url
     else
       render 'new'
     end
@@ -50,7 +53,7 @@ class MembersController < ApplicationController
   private
 
   def member_params
-    params.require(:member).permit(:fullname, :national_id, :email, :password, :password_confirmation)
+    params.require(:member).permit(:name, :national_id, :email, :password, :password_confirmation)
   end
 
   # Before filters

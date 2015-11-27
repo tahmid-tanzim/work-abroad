@@ -1,6 +1,6 @@
 FactoryGirl.define do
   factory :member do
-    fullname "John Doe"
+    name "John Doe"
     national_id 12345678907654321
     email "tahmid.tanzim@live.com"
     password "FooBar@123"

@@ -1,8 +1,8 @@
 <%= form_for(@member) do |f| %>
     <%= render 'shared/error_messages', object: @member %>
 
-    <%= f.label :fullname, "Full Name" %>
-    <%= f.text_field :fullname, class: 'form-control' %>
+    <%= f.label :name %>
+    <%= f.text_field :name, class: 'form-control' %>
 
     <%= f.label :national_id, "National ID" %>
     <%= f.text_field :national_id, class: 'form-control' %>
