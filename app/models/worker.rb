@@ -33,7 +33,8 @@ class Worker < ActiveRecord::Base
             presence: true,
             length: {
                 minimum: 6
-            }
+            },
+            allow_nil: true
 
   # Named Scopes
   scope :newest_first, lambda {

@@ -20,6 +20,20 @@ class WorkersController < ApplicationController
     end
   end
 
+  def edit
+    @worker = Worker.find(params[:id])
+  end
+
+  def update
+    @worker = Worker.find(params[:id])
+    if @worker.update_attributes(worker_params)
+      flash[:success] = "Profile updated"
+      redirect_to @worker
+    else
+      render 'edit'
+    end
+  end
+
   private
 
   def worker_params
