@@ -6,7 +6,7 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-Member.create!(fullname: "Example Member", national_id: 12345678901234567, email: "example@railstutorial.org", password: "foobar", password_confirmation: "foobar")
+Member.create!(fullname: "Example Member", national_id: 12345678901234567, email: "example@railstutorial.org", password: "foobar", password_confirmation: "foobar", admin: true)
 
 99.times do |n|
   fullname = Faker::Name.name
