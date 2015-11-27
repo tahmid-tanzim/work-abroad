@@ -1,6 +1,6 @@
-class CreateWorkers < ActiveRecord::Migration
+class CreateMembers < ActiveRecord::Migration
   def up
-    create_table :workers do |t|
+    create_table :members do |t|
       t.string :fullname, limit: 50
       t.integer :national_id, unique: true, null: false
       t.string :email, unique: true, limit: 255, null: false
@@ -10,6 +10,6 @@ class CreateWorkers < ActiveRecord::Migration
   end
 
   def down
-    drop_table :workers
+    drop_table :members
   end
 end

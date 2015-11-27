@@ -1,32 +1,27 @@
-<% provide :title, "Edit user" %>
-<h1>Update your profile</h1>
+<% provide :title, 'Sign up' %>
+<h1>Sign up</h1>
 
 <div class="row">
   <div class="col-md-6 col-md-offset-3">
-    <%= form_for(@worker) do |f| %>
+    <%= form_for(@member) do |f| %>
         <%= render 'shared/error_messages' %>
 
-        <%= f.label :fullname %>
+        <%= f.label :fullname, "Full Name" %>
         <%= f.text_field :fullname, class: 'form-control' %>
 
-        <%= f.label :national_id %>
+        <%= f.label :national_id, "National ID" %>
         <%= f.text_field :national_id, class: 'form-control' %>
 
-        <%= f.label :email %>
+        <%= f.label :email, "Email Address" %>
         <%= f.email_field :email, class: 'form-control' %>
 
         <%= f.label :password %>
         <%= f.password_field :password, class: 'form-control' %>
 
-        <%= f.label :password_confirmation, "Confirmation" %>
+        <%= f.label :password_confirmation, "Password Confirmation" %>
         <%= f.password_field :password_confirmation, class: 'form-control' %>
 
-        <%= f.submit "Save changes", class: "btn btn-primary" %>
+        <%= f.submit "Create my account", class: "btn btn-primary" %>
     <% end %>
-
-    <div class="gravatar_edit">
-      <%= gravatar_for @worker %>
-      <a href="http://gravatar.com/emails" target="_blank">change</a>
-    </div>
   </div>
 </div>

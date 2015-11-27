@@ -1,3 +1,3 @@
 class WorkExperience < ActiveRecord::Base
-  belongs_to :worker
+  belongs_to :member
 end

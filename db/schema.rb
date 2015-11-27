@@ -13,17 +13,7 @@
 
 ActiveRecord::Schema.define(version: 20151127100809) do
 
-  create_table "work_experiences", force: :cascade do |t|
-    t.integer  "worker_id",    limit: 4
-    t.string   "company_name", limit: 50,                        null: false
-    t.string   "position",     limit: 25,                        null: false
-    t.date     "from",                    default: '2015-11-26'
-    t.date     "to",                      default: '2015-11-26'
-    t.datetime "created_at",                                     null: false
-    t.datetime "updated_at",                                     null: false
-  end
-
-  create_table "workers", force: :cascade do |t|
+  create_table "members", force: :cascade do |t|
     t.string   "fullname",        limit: 50
     t.integer  "national_id",     limit: 4,   null: false
     t.string   "email",           limit: 255, null: false
@@ -33,7 +23,17 @@ ActiveRecord::Schema.define(version: 20151127100809) do
     t.string   "remember_digest", limit: 255
   end
 
-  add_index "workers", ["email"], name: "index_workers_on_email", using: :btree
-  add_index "workers", ["national_id"], name: "index_workers_on_national_id", using: :btree
+  add_index "members", ["email"], name: "index_members_on_email", using: :btree
+  add_index "members", ["national_id"], name: "index_members_on_national_id", using: :btree
+
+  create_table "work_experiences", force: :cascade do |t|
+    t.integer  "member_id",    limit: 4
+    t.string   "company_name", limit: 50,                        null: false
+    t.string   "position",     limit: 25,                        null: false
+    t.date     "from",                    default: '2015-11-27'
+    t.date     "to",                      default: '2015-11-27'
+    t.datetime "created_at",                                     null: false
+    t.datetime "updated_at",                                     null: false
+  end
 
 end

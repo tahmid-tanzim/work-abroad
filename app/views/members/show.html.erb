@@ -1,0 +1,15 @@
+<% provide :title, @member.fullname %>
+<div class="row">
+  <aside class="col-md-4">
+    <section class="member_info">
+      <h1>
+        <%= gravatar_for @member %>
+        <%= @member.fullname %>
+      </h1>
+    </section>
+  </aside>
+  <p>
+    National Id: <%= @member.national_id %>
+    Email: <%= @member.email %>
+  </p>
+</div>

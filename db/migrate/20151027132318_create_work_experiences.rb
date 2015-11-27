@@ -1,7 +1,7 @@
 class CreateWorkExperiences < ActiveRecord::Migration
   def up
     create_table :work_experiences do |t|
-      t.references :worker
+      t.references :member
       t.string :company_name, :limit => 50, :null => false
       t.string :position, :limit => 25, :null => false
       t.date :from, :default => Time.now

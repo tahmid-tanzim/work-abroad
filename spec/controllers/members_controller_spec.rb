@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe WorkersController, type: :controller do
+RSpec.describe MembersController, type: :controller do
 
   describe "GET #new" do
     it "responds successfully with an HTTP 200 status code" do

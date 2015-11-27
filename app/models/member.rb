@@ -1,4 +1,4 @@
-class Worker < ActiveRecord::Base
+class Member < ActiveRecord::Base
   attr_accessor :remember_token
   has_many :work_experiences
 
@@ -38,7 +38,7 @@ class Worker < ActiveRecord::Base
 
   # Named Scopes
   scope :newest_first, lambda {
-                       order("workers.created_at DESC")
+                       order("members.created_at DESC")
                      }
   scope :search_by_name, lambda { |query|
                          where(["fullname LIKE ?", "%#{query}%"])
@@ -55,10 +55,10 @@ class Worker < ActiveRecord::Base
     SecureRandom.urlsafe_base64
   end
 
-  # Remembers a worker in the database for use in persistent sessions.
+  # Remembers a member in the database for use in persistent sessions.
   def remember
-    self.remember_token = Worker.new_token
-    update_attribute(:remember_digest, Worker.digest(remember_token))
+    self.remember_token = Member.new_token
+    update_attribute(:remember_digest, Member.digest(remember_token))
   end
 
   # Returns true if the given token matches the digest.
@@ -67,7 +67,7 @@ class Worker < ActiveRecord::Base
     BCrypt::Password.new(remember_digest).is_password?(remember_token)
   end
 
-  # Forgets a worker.
+  # Forgets a member.
   def forget
     update_attribute(:remember_digest, nil)
   end

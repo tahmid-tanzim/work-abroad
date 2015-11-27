@@ -1,46 +1,46 @@
 module SessionsHelper
 
-  # Logs in the given worker.
-  def log_in(worker)
-    session[:worker_id] = worker.id
+  # Logs in the given member.
+  def log_in(member)
+    session[:member_id] = member.id
   end
 
-  # Remembers a worker in a persistent session.
-  def remember(worker)
-    worker.remember
-    cookies.permanent.signed[:worker_id] = worker.id
-    cookies.permanent[:remember_token] = worker.remember_token
+  # Remembers a member in a persistent session.
+  def remember(member)
+    member.remember
+    cookies.permanent.signed[:member_id] = member.id
+    cookies.permanent[:remember_token] = member.remember_token
   end
 
-  # Returns the current logged-in worker (if any).
-  def current_worker
-    if (worker_id = session[:worker_id])
-      @current_worker ||= Worker.find_by(id: session[:worker_id])
-    elsif (worker_id = cookies.signed[:worker_id])
-      worker = Worker.find_by(id: worker_id)
-      if worker && worker.authenticated?(cookies[:remember_token])
-        log_in worker
-        @current_worker = worker
+  # Returns the current logged-in member (if any).
+  def current_member
+    if (member_id = session[:member_id])
+      @current_member ||= Member.find_by(id: session[:member_id])
+    elsif (member_id = cookies.signed[:member_id])
+      member = Member.find_by(id: member_id)
+      if member && member.authenticated?(cookies[:remember_token])
+        log_in member
+        @current_member = member
       end
     end
   end
 
   # Forgets a persistent session.
-  def forget(worker)
-    worker.forget
-    cookies.delete(:worker_id)
+  def forget(member)
+    member.forget
+    cookies.delete(:member_id)
     cookies.delete(:remember_token)
   end
 
-  # Returns true if the worker is logged in, false otherwise.
+  # Returns true if the member is logged in, false otherwise.
   def logged_in?
-    !current_worker.nil?
+    !current_member.nil?
   end
 
-  # Logs out the current worker.
+  # Logs out the current member.
   def log_out
-    forget(current_worker)
-    session.delete(:worker_id)
-    @current_worker = nil
+    forget(current_member)
+    session.delete(:member_id)
+    @current_member = nil
   end
 end
