@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151027132318) do
+ActiveRecord::Schema.define(version: 20151127100809) do
 
   create_table "work_experiences", force: :cascade do |t|
     t.integer  "worker_id",    limit: 4
@@ -30,6 +30,7 @@ ActiveRecord::Schema.define(version: 20151027132318) do
     t.string   "password_digest", limit: 255
     t.datetime "created_at",                  null: false
     t.datetime "updated_at",                  null: false
+    t.string   "remember_digest", limit: 255
   end
 
   add_index "workers", ["email"], name: "index_workers_on_email", using: :btree

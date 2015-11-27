@@ -12,6 +12,7 @@ class WorkersController < ApplicationController
   def create
     @worker = Worker.new(worker_params)    # Not the final implementation!
     if @worker.save
+      log_in @worker
       flash[:success] = "Welcome to the Work Abroad!"
       redirect_to @worker
     else
